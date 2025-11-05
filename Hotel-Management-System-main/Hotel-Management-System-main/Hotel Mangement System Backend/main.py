@@ -1,9 +1,8 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm
-from . import models, schemas, database, utils, auth
+import models, schemas, database, utils, auth
 
-# Create tables in PostgreSQL
 models.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI(title="FastAPI Backend with PostgreSQL (Users + Admin)")
